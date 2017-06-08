@@ -26,4 +26,5 @@ public class SearchController {
 
     @RequestMapping("/find")
     private  List<User> findStr(String str ){return  userDao.findUserByStr(str);}
+
 }
