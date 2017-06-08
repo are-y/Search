@@ -1,6 +1,0 @@
-.weui-panel__hd::after{
-  left: 0;
-}
-.tips1 text{
-    margin: 10px;
-}
