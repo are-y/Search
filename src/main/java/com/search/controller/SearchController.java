@@ -19,8 +19,11 @@ public class SearchController {
     @Autowired
     private UserDao userDao;
 
-    @RequestMapping("findAll")
+    @RequestMapping("/findAll")
     private List<User> findAll(){
         return userDao.findAll();
     }
+
+    @RequestMapping("/find")
+    private  List<User> findStr(String str ){return  userDao.findUserByStr(str);}
 }

@@ -11,4 +11,6 @@ public interface UserDao {
     public  void  saveUser(User user);
 
     public List<User> findAll();
+
+    public List<User> findUserByStr(String str);
 }

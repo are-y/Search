@@ -23,13 +23,28 @@ public class SearchTest {
     private UserDao userDao;
 
     @Test
-    public  void test(){
-        User user=new User(1L,"nash","123456","271638652@qq.com","QQ");
+    public  void save(){
+//        User user=new User(6L,"nash","465465","nash","WX");
+        User user=new User();
+        user.setId(8L);
+        user.setEmail("nash");
         userDao.saveUser(user);
+
+    }
+
+    @Test
+    public  void findAll(){
         List<User> list=userDao.findAll();
         for (User user1 :list){
             System.out.print(user1.getEmail());
         }
+    }
 
+    @Test
+    public  void find(){
+        List<User> list =userDao.findUserByStr("nas");
+        for (User user2 :list){
+            System.out.print(user2.getName());
+        }
     }
 }
