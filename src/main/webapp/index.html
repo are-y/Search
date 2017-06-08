@@ -42,26 +42,23 @@
 	</table>
 </div>
 <script >
-	
+
 
 	new Vue({
 		el:"#search",
 		data:{
 			inputVal:'',
 			count:0,
-			users:[{
-				name:'',
-				pwd:'',
-				email:'',
-				source:''
-			}]
+			users:[]
 		},
 		methods:{
 			search:function(){
-				var _self = this;
-                var url = "localhost:8848/search/find?str="+_self.inputVal;
-				this.$http.get(url).then(function(res){
-					alert(res)
+				var that = this;
+
+                var url = "http://localhost:8848/search/find";
+                that.$http.get(url,{str:that.inputVal}).then(function(res){
+					that.count=res.data.length;
+					that.users=res.data;
 				}),function(){
 					alert('请求失败')
 				}
