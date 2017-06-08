@@ -24,10 +24,10 @@ public class SearchTest {
 
     @Test
     public  void save(){
-//        User user=new User(6L,"nash","465465","nash","WX");
-        User user=new User();
-        user.setId(8L);
-        user.setEmail("nash");
+        User user=new User(9L,"nash","465465","nash","WX");
+//        User user=new User();
+//        user.setId(L);
+//        user.setEmail("nash");
         userDao.saveUser(user);
 
     }

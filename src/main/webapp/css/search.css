@@ -1,0 +1,22 @@
+body{
+	background:url(../images/arc.jpg);
+}
+
+.container{
+	max-width:1000px;
+	
+	height: 100%;
+}
+caption{
+	    color: #fff;
+}
+caption>span{
+	color: #F00;
+}
+.table-striped>tbody>tr:nth-of-type(odd){
+	background-color: rgba(249, 249, 249, 0.09);
+}
+.search{
+	width: auto;
+	margin:60px 0 40px;
+}
