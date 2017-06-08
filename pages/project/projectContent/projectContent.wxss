@@ -1,0 +1,82 @@
+/* pages/project/projectContent/projectContent.wxss */
+.navClass{
+    border-top:1rpx solid #D9D9D9;
+}
+.whoMenu{
+    margin: 0rpx 10rpx;
+    border-bottom: 1rpx solid #D9D9D9;
+    border-top: 1rpx solid #D9D9D9;
+    background-color: #FFFFFF;
+    height: 30px;
+    line-height: 30px;
+    display: flex;
+}
+.znDown::after{
+    border-width:0px 2px 2px 0;
+}
+.shuxingWidth{
+    width: 45px;
+}
+.weui-input{
+    height:44px;
+    text-align:right;
+    padding-top:7px;
+    color: #888888;
+}
+.itmes{
+    display: flex;
+    width: 25%;
+    align-items:center;
+    justify-content:center;     
+}
+.whoContent{
+    padding: 0rpx 15px;
+    margin-left: 10px;
+}
+.whoContent view{
+    margin: 15px 0rpx;
+}
+.rightMargin{
+    margin-left: 5%;
+}
+.showClass1{
+    text-align: center;
+    height: 46.52px;
+    line-height: 46.25px;  
+}
+.showClass{
+    text-align: center;
+    height: 46.52px;
+    line-height: 46.25px;
+    border-bottom: 1rpx solid #D9D9D9;
+}
+.weui-cells{
+    margin-top: 0px;
+    
+}
+.weui-cell{
+    width: 92%;
+}
+.addClass{
+    float: right;
+    margin-right: 15px;
+    color: #07949E;
+    margin-top:12px;
+}
+
+.savePro{
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+}
+.organizationClass{
+    height: 46.52px;
+    line-height: 46.25px;
+    padding: 0rpx 15px;
+}
+.onParticipant{
+    text-align: center;
+    height: 46.52px;
+    line-height: 46.25px;
+    color: #D9D9D9;
+}

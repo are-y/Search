@@ -1,0 +1,33 @@
+ <!-- 表单 -->
+<form bindsubmit="formPassSubmit" bindreset="formReset">
+    <view class="weui-cells weui-cells_after-title backGauge">
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">原密码</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" placeholder="请输入原密码" password="true" name="pwd"/>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">新密码</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" placeholder="请输入新密码" password="true" name="newPwd"/>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">确认密码</view>
+            </view>
+            <view class="weui-cell__bd">
+                <input class="weui-input" placeholder="请输入确认密码" password="true" name="confirmPwd"/>
+            </view>
+        </view>
+    </view>
+    <view>
+        <button class="weui-btn-area" type="primary" form-type="submit" >确认修改</button>
+    </view>
+</form>
+

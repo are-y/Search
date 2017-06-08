@@ -1,0 +1,28 @@
+/* pages/message/message.wxss */
+.page{
+    font-size: 11pt;
+}
+.scrollXclass view{
+    display: flex
+}
+.messaheMenu view{
+    margin: 0px auto;
+    padding:10px 3%;
+}
+.contentBottom{
+    margin-top: 10px;
+}
+
+navigator{
+    border-top: 1rpx solid #D9D9D9 !important;
+    margin-left: 15px;
+}
+.weui-media-boxs{
+    padding:15px 15px 15px 0px;
+}
+
+.select{
+  color: #079ADD;
+  border-bottom:2px #079ADD solid;
+
+}

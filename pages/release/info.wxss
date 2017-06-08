@@ -1,0 +1,28 @@
+.placeholder{
+    border: 1px solid #d0d0d0;
+    padding: 0px;
+    text-align: center;
+    background-color: #EBEBEB;
+    height: 23pt;
+    line-height: 23pt;
+    font-size: 15px;
+}
+.add{
+    color: green;
+    
+}
+
+.delete{
+    color: red;
+}
+
+.informationList{
+    height: 50px;
+    background-color: gray;   
+    border: 1px solid #d0d0d0;
+}
+.information{
+    margin: auto;
+    font-size: 15px;
+    text-align: center;
+}

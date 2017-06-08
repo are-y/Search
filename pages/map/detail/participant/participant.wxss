@@ -1,0 +1,6 @@
+/* pages/map/info-details/doc/doc.wxss */
+
+.page__title {
+  height: 42px;
+  line-height: 42px;
+}

@@ -1,0 +1,32 @@
+/* pages/project/check-upload.wxss */
+.page{
+    margin: 0px auto;
+    font-size: 11pt;
+}
+.topTltie{
+    margin: 0px auto;
+    text-align: center;
+}
+.tltieClss{
+    border-top: 1px #D9D9D9 solid;
+    line-height: 50px;
+}
+.tltieClss view{
+    margin-left: 15px;
+}
+.topTltie{
+    margin: 0px auto;
+}
+.classname{
+    background-color: #FFFFFF;
+    padding: 0px 15px;
+}
+.weui-panel{
+    margin-top:0px;
+}
+text{
+    color:#888888;
+}
+video {
+    width: 100%;
+}

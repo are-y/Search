@@ -1,0 +1,47 @@
+<view>
+    <navigator url="{{'../infoType/infoType?type='+type}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active" redirect="true" >
+        <view class="weui-cell__bd">{{"信息类型："+type}}</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access">请选择</view>
+   </navigator>
+</view>
+<view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell">
+        <view class="weui-cell__bd">信息标题</view>
+        <input class=" weui-cell__ft weui-input" placeholder="在此输入标题"/>
+    </view>
+</view>
+<view class="weui-cells__title">信息内容</view>
+
+<view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell">
+        <view class="weui-cell__bd">
+            <textarea class="weui-textarea" placeholder="在此输入信息内容" style="height: 3.3em" />
+            <view class="weui-textarea-counter">0/200</view>
+        </view>
+    </view>
+</view>
+
+<view class="weui-cell">
+    <view class="weui-cell__bd">附件</view>
+     <view class="weui-cell__ft">
+        <image src="{{}}" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;" bindtap="chooseImage"></image>
+    </view>
+</view>
+
+
+<view class="weui-uploader__hd">
+        <view class="weui-uploader__title">图片上传</view>
+        <view class="weui-uploader__info">{{files.length}}/2</view>
+</view>
+<view class="weui-uploader__bd">
+        <view class="weui-uploader__files" id="uploaderFiles">
+                <block wx:for-items="{{files}}" wx:key="{{index}}">
+                    <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
+                        <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+                    </view>
+                 </block>                
+        </view>
+        <view class="weui-uploader__input-box">
+            <view class="weui-uploader__input" bindtap="chooseImage"></view>
+        </view>
+    </view>

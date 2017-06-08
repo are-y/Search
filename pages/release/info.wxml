@@ -1,0 +1,28 @@
+<!--info.wxml-->
+<view class="weui-flex">
+    <view class="weui-flex__item"><view class="placeholder" bindtap="selecteType" >类型</view></view>
+     <view class="weui-flex__item"><view class="placeholder"></view></view>
+    <view class="weui-flex__item">
+        <view class=" weui-flex">
+            <view class="weui-flex__item placeholder" bindtap="addInfoTap" >
+              <label class="add" >+</label>
+              <label>新增</label>
+            </view>
+            <view class="weui-flex__item placeholder" bindtap="deleteInfoTap" >
+                <label class="delete">-</label>
+               <label>删除</label>
+            </view>
+        </view>
+    </view>
+</view>  
+
+<view  wx:for="{{information}}">
+    <view>
+        <navigator url="{{'/infoType/infoType?type='+type}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active" redirect="true" >
+            <view class="weui-cell__bd">{{item.title}}</view>
+            <view class="weui-cell__ft weui-cell__ft_in-access ">{{item.time}}</view>
+        </navigator>
+    </view>
+</view>  
+       
+        

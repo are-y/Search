@@ -1,0 +1,166 @@
+<view class="page">
+  <view class="page__hd">
+    <view class="page__title">
+      <text>{{project.projectName}}</text>
+    </view>
+  </view>
+  <view class="page__bd">
+
+    <!--图片展示-->
+    <block wx:if="{{project.fileIDs.length>0}}">
+      <swiper indicator-dots="{{indicatorDots}}" autoplay="true" indicator-active-color="#93ff93">
+        <block wx:for="{{project.fileIDs}}" wx:key="index">
+          <swiper-item>
+            <image src="{{project.imgUrl}}{{item}}" class="slide-image" />
+          </swiper-item>
+        </block>
+      </swiper>
+    </block>
+
+    <!--进度情况-->
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_access box ">
+        <view class="weui-cell__hd box-item " >
+          <text style="font-size: 10pt;color: #6c6c6c;">{{"进度情况："}}</text>
+          <block wx:if="{{project.progressStatusCode!=null&&project.progressStatusCode!=''&&project.progressStatusCode!=undefined}}">
+            <icon style="color:{{project.progressStatusCode<3?'green':'red'}}" class="iconfont {{project.progressStatusCode<3?'emps-dz3':'emps-dz2'}}"></icon>
+            <text style="font-size: 10pt;color: #888888;">{{project.progressStatusName}}</text>
+          </block>
+        </view>
+        <view class="weui-cell__hd box-item">
+          <text style="font-size: 10pt;color: #6c6c6c;">{{"投资情况："}}</text>
+          <block wx:if="{{project.investmentStatusCode!=null&&project.investmentStatusCode!=''&&project.investmentStatusCode!=undefined}}">
+            <icon style="color:{{project.investmentStatusCode<3?'green':'red'}}" class="iconfont {{project.investmentStatusCode<3?'emps-dz3':'emps-dz2'}}"></icon>
+            <text style="font-size: 10pt;color: #888888;">{{project.investmentStatusName}}</text>
+          </block>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_access box">
+        <view class="weui-cell__hd box-item">
+          <text style="font-size: 10pt;color: #6c6c6c;">{{"质量情况："}}</text>
+          <block wx:if="{{project.qualityStatusCode!=null&&project.qualityStatusCode!=''&&project.qualityStatusCode!=undefined}}">
+            <icon style="color:{{project.qualityStatusCode<2?'green':'red'}}" class="iconfont {{project.qualityStatusCode<2?'emps-dz3':'emps-dz2'}}"></icon>
+            <text style="font-size: 10pt;color: #888888;">{{project.qualityStatusName}}</text>
+          </block>
+        </view>
+        <view class="weui-cell__hd box-item ">
+          <text style="font-size: 10pt;color: #6c6c6c;">{{"安全情况："}}</text>
+          <block wx:if="{{project.securityStatusCode!=null&&project.securityStatusCode!=''&&project.securityStatusCode!=undefined}}">
+            <icon style="color:{{project.securityStatusCode<2?'green':'red'}}" class="iconfont {{project.securityStatusCode<2?'emps-dz3':'emps-dz2'}}"></icon>
+            <text style="font-size: 10pt;color: #888888;">{{project.securityStatusName}}</text>
+          </block>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_access">
+        <view class="weui-cell__hd ">
+          项目阶段：
+          <text>{{project.stageName}}</text>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_access">
+        <view class="weui-cell__hd">
+          投资建设：
+          <text>{{project.investment}}</text>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_access">
+        <view class="weui-cell__hd ">
+          地址：
+          <text>{{project.address}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!--项目资料-->
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell " bindtap="viewDoc">
+        <view class="weui-cell__bd ">
+          项目资料
+        </view>
+        <view class="weui-cell_ft weui-cell__ft_in-access"></view>
+      </view>
+    </view>
+
+    <!--参与单位-->
+    <view class="weui-cells__title">参与单位</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cells">
+
+        <!--
+        <view class="weui-cell weui-cell_access" bindtap="queryPartcipant" data-id="{{project.userCompanyID}}" data-name="{{project.userCompanyName}}">
+          <view class="weui-cell__hd ">
+            使用单位：
+            <text>{{project.userCompanyName}}</text>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_access" bindtap="queryPartcipant" data-id="{{project.evaluatorCompanyID}}" data-name="{{project.evaluatorCompanyName}}">
+          <view class="weui-cell__hd ">
+            造价单位：
+            <text>{{project.evaluatorCompanyName}}</text>
+          </view>
+        </view>-->
+        <view class="weui-cell weui-cell_access" bindtap="queryPartcipant" data-id="{project.{builderCompanyID}}" data-name="{{project.builderCompanyName}}">
+          <view class="weui-cell__hd ">
+            建设单位：
+            <text>{{project.builderCompanyName==null||project.builderCompanyName==undefined||project.builderCompanyName=='undefined'?'':project.builderCompanyName}}</text>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_access" bindtap="queryPartcipant" data-id="{{project.supervisorCompanyID}}" data-name="{{project.supervisorCompanyName}}">
+          <view class="weui-cell__hd ">
+            监理单位：
+            <text>{{project.supervisorCompanyName==null||project.supervisorCompanyName==undefined||project.supervisorCompanyName=='undefined'?'':project.supervisorCompanyName}}</text>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_access" bindtap="queryPartcipant" data-id="{{project.contractorCompanyID}}" data-name="{{project.contractorCompanyName}}">
+          <view class="weui-cell__hd ">
+            总包单位：
+            <text>{{project.contractorCompanyName==null||project.contractorCompanyName==undefined||project.contractorCompanyName=='undefined'?'':project.contractorCompanyName}}</text>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_access" bindtap="queryPartcipant" data-id="{{project.designerCompanyID}}" data-name="{{project.designerCompanyName}}">
+          <view class="weui-cell__hd ">
+            设计单位：
+            <text>{{project.designerCompanyName==null||project.designerCompanyName==undefined||project.designerCompanyName=='undefined'?'':project.designerCompanyName}}</text>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_access" bindtap="queryPartcipant" data-id="{{project.reconnaissanceCompanyID}}" data-name="{{project.reconnaissanceCompanyName}}">
+          <view class="weui-cell__hd ">
+            勘察单位：
+            <text>{{project.reconnaissanceCompanyName==null||project.reconnaissanceCompanyName==undefined||project.reconnaissanceCompanyName=='undefined'?'':project.reconnaissanceCompanyName}}</text>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_access" bindtap="queryPartcipant" data-id="{{project.investmentCompanyID}}" data-name="{{project.investmentCompanyName}}">
+          <view class="weui-cell__hd ">
+            投资单位：
+            <text>{{project.investmentCompanyName==null||project.investmentCompanyName==undefined||project.investmentCompanyName=='undefined'?'':project.investmentCompanyName}}</text>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_access" bindtap="queryPartcipant" data-id="{{project.governmentDepartmentID}}" data-name="{{governmentDepartmentName}}">
+          <view class="weui-cell__hd ">
+            政府协调机构：
+            <text>{{project.governmentDepartmentName==null||project.governmentDepartmentName==undefined?'':project.governmentDepartmentName}}</text>
+          </view>
+        </view>
+
+        <!--<view class="weui-cell weui-cell_access" bindtap="queryPartcipant" data-id="{{project.materialSupplierID}}" data-name="{{project.materialSupplierName}}">
+          <view class="weui-cell__hd ">
+            材料供应商：
+            <text>{{project.materialSupplierName}}</text>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_access" bindtap="queryPartcipant" data-id="{{project.deviceSupplierID}}" data-name="{{project.deviceSupplierName}}">
+          <view class="weui-cell__hd ">
+            设备供应商：
+            <text>{{project.deviceSupplierName}}</text>
+          </view>
+        </view>
+        <view class="weui-cell weui-cell_access" bindtap="queryPartcipant" data-id="{{project.machineSupplierID}}" data-name="{{project.machineSupplierName}}">
+          <view class="weui-cell__hd ">
+            机械供应商：
+            <text>{{project.machineSupplierName}}</text>
+          </view>
+        </view>-->
+      </view>
+    </view>
+  </view>
+</view>

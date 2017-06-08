@@ -1,0 +1,51 @@
+
+@import "../../resources/css/weui.wxss";
+
+.header{
+  position:fixed;  
+  background-color: #FFFFFF;
+  padding: 10px 0px;
+  width: 100%;
+  /*border:1px solid red;*/
+  z-index:1;
+}
+.pickerClass{
+    float: left;
+    text-align-last: center;
+    height: 28px;
+    margin-left: 0px !important;
+    background-color: #FFFFFF;
+}
+.weui-input{
+    height: 28px !important;
+    line-height: 40px !important;
+    display: flex;
+}
+.labelClass{
+    display: flex;
+}
+.emps-xx1{
+    display: flex;
+    font-size: 8px;
+    margin-left: 10px;
+}
+.weui-search-bar{
+    padding: 0px 0px;
+    border-bottom: none;
+    border-top: none;
+    background-color: #FFFFFF;
+    margin-right: 20px;
+}
+
+.weui-search-bar__form{
+    background-color:#F8F8F8;
+    border: none;
+    border-radius: 10px;
+}
+.content-main{
+    /*border:1px solid red;*/
+    padding-top:48px;
+}
+.tips1 text{
+    margin: 10px;
+}

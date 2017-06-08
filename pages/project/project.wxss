@@ -1,0 +1,122 @@
+
+@import "../../resources/css/weui.wxss";
+
+/*头样式，类型和编辑*/
+.header {
+    position:fixed;  
+    width: 100%;
+    z-index:1;
+    padding: 10px;
+    background: #FFF;
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    justify-content: space-between;
+    align-items: center;
+    /*border: 1px solid red;*/
+    border-bottom: 1px solid #e4e4e4;
+    
+}
+.infoType{
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    /*border: 1px solid red;*/
+}
+.section{
+    margin-left: 5px;
+    /*border: 1px solid red;*/
+}
+
+.infoEdit{
+    display: flex;
+    flex-direction: row;
+    width:auto;
+    text-align: right;
+    margin-right:10px;
+    /*border: 1px solid red;*/
+}
+.infoEdit_left{
+    margin-left: 5px;
+    /*border: 1px solid red;*/
+}
+.infoEdit_right{
+    margin-left: 5px;
+    /*border: 1px solid red;*/
+}
+.disClss{
+    display: flex;
+    margin-right: 10px;
+}
+
+/*内容区域*/
+.content{
+    padding-left: 15px;
+    display: flex;
+    flex-direction:column;
+    height: auto;
+    font-size: 13px;
+    /*border: 1px solid red;*/
+}
+
+.item{
+    display: flex;
+    flex-direction:row;
+    justify-content:flex-start;
+    align-items:center;
+    padding: 10px 0px;
+    border-bottom: 1px solid #e4e4e4;
+}
+.item_left{
+    display: flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+    width: auto;
+    margin-left: 5px;
+    /*border: 1px solid red;*/
+}
+.itemImg{
+    width:80px;
+    height: 80px;
+    border: 1px solid red;
+}
+.item_right{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-content:space-around; 
+    width: auto;
+    margin-left: 30px;
+    /*border: 1px solid green;*/
+}
+.item_row{
+    height: 28px;
+    line-height: 28px;
+    /*border:1px solid red;*/
+}
+
+.scroll-view_H{
+  white-space: nowrap;
+}
+.scroll-view-item{
+  height: 200px;
+}
+.scroll-view-item_H{
+  display: inline-block;
+  width: 100%;
+  height: 200px;
+}
+.weui-loadmore_line{
+    border-top: none !important;
+}
+.weui-loadmore{
+    margin:0.5px auto !important;
+}
+.content-main{
+    padding-top:46px;
+    margin-top:0;
+}
+.tips1 text{
+    margin: 10px;
+}

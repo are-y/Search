@@ -1,0 +1,81 @@
+<loading hidden="{{hidden}}" bindchange="loadingChange">
+  加载中...
+</loading>
+
+<view class="page">
+  <view class="projectListTop">
+
+    <!--项目类别-->
+    <view class="weui-cell weui-cell_input pickerClass">
+      <view class="weui-cell__bd">
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" range-key="label">
+          <view class="weui-input">
+            <view class="labelClass">{{projectTypeText!=null?projectTypeText:array[index].label}}</view>
+            <icon class="iconfont emps-xx1"></icon>
+          </view>
+        </picker>
+      </view>
+    </view>
+
+    <!--项目搜索-->
+
+    <view class="page__bd">
+      <view class="weui-search-bar">
+        <view class="weui-search-bar__form">
+          <view class="weui-search-bar__box">
+            <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+            <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputSE" />
+            <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+              <icon type="clear" size="14"></icon>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+  <scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:{{scrollHeight}}px;" bindscrolltolower="bindDownLoad" bindscroll="scroll" bindscrolltoupper="refresh">
+    <!--项目列表-->
+    <view class="page__bd">
+      <view class="weui-panel weui-panel_access">
+        <view class="weui-panel__bd">
+
+          <!--列表模板 begin-->
+          <template name="itmes">
+            <navigator url="projectContent/projectContent?id={{projectID}}" class="weui-media-boxs weui-media-box_appmsg" hover-class="weui-cell_active">
+              <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                <!--<block wx:if="{{profilePhoto!=null&&profilePhoto!=''}}">
+                <image class="weui-media-box__thumb" src="{{imgUrl}}" />
+              </block>-->
+                <image class="weui-media-box__thumb" src="{{imgUrl}}" />
+              </view>
+              <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                <view class="weui-media-box__title">{{projectName}}</view>
+                <view class="weui-media-box__desc">{{address!=''?address:'暂无地址'}}</view>
+              </view>
+            </navigator>
+          </template>
+
+          <!--列表模板 end-->
+
+          <!--循环输出列表 begin-->
+          <view wx:for="{{projectList}}" wx:key="projectList">
+            <template is="itmes" data="{{...item}}" />
+          </view>
+
+          <!--循环输出列表 end-->
+        </view>
+      </view>
+    </view>
+    <view class="tips1">
+      <view wx:if="{{hasMore}}" style="display: flex;flex-direction: row;align-items: center;align-self: center;color:#777;justify-content: center;">
+        <view wx:if="{{hasMoreBe}}">
+          <view class="weui-loading"></view>
+          <text>正在加载中...</text>
+        </view>
+        <text wx:else>———— 没有更多内容了 ————</text>
+      </view>
+    </view>
+  </scroll-view>
+</view>

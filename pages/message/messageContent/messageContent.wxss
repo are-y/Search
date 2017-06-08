@@ -1,0 +1,35 @@
+/* pages/message/messageContent/messageContent.wxss */
+.page{
+    margin: 0px 15px;
+    margin-bottom: 20px;
+}
+.articleTop{
+    text-align: center;
+    padding: 15px 0px;
+}
+.articleTitle{
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.assistantTitle{
+    color: #999999;
+}
+.uploadingTime{
+    margin-left: 20px;
+}
+.articleContent{
+    margin: 15px 0px;
+}
+.wxParse{
+    margin: 0 5px;
+    font-family: Helvetica,sans-serif;
+    font-size: 28rpx;
+    color: #666;
+    line-height: 1.8;
+}
+.wxParse-p{
+    text-indent:2em;
+}
+.wxParse-p image{
+    margin-left: -2em;
+}

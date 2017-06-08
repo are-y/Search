@@ -1,0 +1,37 @@
+<view class="page">
+  <view class="topTltie tltieClss">{{source.sourceName}}</view>
+  <view class="classname weui-panel">
+    <view class="tltieClss">项目阶段：
+      <text>{{source.stageName}}</text>
+    </view>
+    <view class="tltieClss">资料类型：
+      <text>{{source.sourceTypeName}}</text>
+    </view>
+    <view class="tltieClss">文档编号：
+      <text>{{source.fileCode}}</text>
+    </view>
+    <view class="tltieClss">上传人员：
+      <text>{{source.uploaderName}}</text>
+    </view>
+    <view class="tltieClss">所属公司：
+      <text>{{source.corporationName}}</text>
+    </view>
+    <view class="tltieClss">上传时间：
+      <text>{{source.insertTime}}</text>
+    </view>
+    <view class="tltieClss">
+      <view>附件：</view>
+      <view wx:if="{{files==null}}">{{attachmentText}}</view>
+      <view wx:else>
+        <view wx:for="{{files}}" wx:key="file" wx:for-item="file">
+          <view style="color: #0000CD;font-size: 10pt;" data-id="{{file.fileID}}" data-ext="{{file.ext}}" bindtap="bindFile">{{index+1}}、{{file.fileID}}.{{file.ext}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view wxif="{{isVideo!==null}}" style="text-align: center;">
+      <video bindended="endPlay" hidden="{{isVideo==null}}" src="{{isVideo}}"></video>
+    </view>
+    
+  </view>
+</view>

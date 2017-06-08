@@ -1,0 +1,37 @@
+<!--login.wxml-->
+<view>
+    <view class="head" wx:if="{{avatarUrl!=''}}">
+        <image src="{{avatarUrl}}" mode="aspectFit" class="avatar" background-size="cover" mode="scaleToFill"></image>
+    </view>
+    <view class="head" wx:if="{{avatarUrl==''}}">
+        <image src="../../resources/images/default.jpg" mode="aspectFit" class="avatar" background-size="cover" mode="scaleToFill"></image>
+    </view>
+
+    <!-- 表单 -->
+    <view>
+    <form bindsubmit="formSubmitLogin">
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">用户名</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input name="loginID" class="weui-input" placeholder="请输入用户名"/>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input weui-cell_vcode">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">密码</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input password name="pwd" class="weui-input" placeholder="请输入密码" />
+                </view>
+            </view>
+        </view>
+        
+        <view class="weui-btn-area">
+            <button class="weui-btn" type="primary" form-type="submit">登录</button>
+        </view>
+    </form>
+    </view>
+</view>

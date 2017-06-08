@@ -1,0 +1,5 @@
+.typeStyle{
+    border-bottom: 1px solid #d0d0d0;
+    height: 35px;
+    
+}

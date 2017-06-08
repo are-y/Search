@@ -1,0 +1,43 @@
+
+<!--分类列表-->
+<view class="weui-panel__hd header">
+  <view class="title">{{district.govName}}{{projectType.name}}类型项目列表：</view>
+</view>
+<block wx:if="{{isLoad}}">
+  <scroll-view scroll-top="{{scrollTop}}" bindscrolltolower="pullUpLoad" bindscrolltoupper="pullDownLoad" scroll-y="true" style="height:{{scrollHeight}}px;" scroll-into-view="{{toView}}">
+
+    <!--刷新-->
+    <block wx:if="{{isRefresh}}">
+      <view class="tips1">
+        <view style="display: flex;flex-direction: row;align-items: center;align-self: center;color:#777; justify-content: center;">
+          <view class="weui-loading"></view>
+          <text>正在刷新...</text>
+        </view>
+      </view>
+    </block>
+
+    <!--列表-->
+    <view class="weui-panel__bd">
+      <view class="weui-media-box weui-media-box_appmsg" id="{{'element'+index}}" wx:for="{{projects}}" wx:key="{{code}}" data-value="{{item.projectID}}" bindtap="selecteProject">
+        <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+          <image class="weui-media-box__thumb" src="{{item.imgUrl}}" />
+        </view>
+        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+          <view class="weui-media-box__title">{{item.projectName}}</view>
+          <view class="weui-media-box__desc">{{item.address==''?'暂无地址':item.address}}</view>
+        </view>
+      </view>
+    </view>
+
+    <!--加载更多-->
+    <view class="tips1">
+      <view style="display: flex;flex-direction: row;align-items: center;align-self: center;color:#777; justify-content: center;">
+        <view wx:if="{{nextPage.hasNext}}">
+          <view class="weui-loading"></view>
+          <text>正在加载中...</text>
+        </view>
+        <text wx:else>———— 没有更多内容了 ————</text>
+      </view>
+    </view>
+  </scroll-view>
+</block>

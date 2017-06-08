@@ -1,0 +1,45 @@
+
+<!--index.wxml-->
+<loading hidden="{{hidden}}" bindchange="loadingChange">
+  加载中...
+</loading>
+<scroll-view scroll-y="true" style="height: 100%;" bindscrolltoupper="refesh">
+  <view wx:if="{{hasRefesh}}" style="display: flex;flex-direction: row;align-items: center;align-self: center;justify-content: center;">
+    <icon type="waiting" size="45" />
+    <text>刷新中...</text>
+  </view>
+  <view wx:else style="display:none">
+    <text></text>
+  </view>
+  <view>
+    <view class="userinfo">
+      <image class="avatar" src="{{avatarUrl}}" background-size="cover"></image>
+      <view class="info">
+        <view class="location">
+          <text>{{nickName}}</text>
+          <view>
+            <text class="iconfont icon-dingwei"></text>
+            <text style="margin-left:6px">{{city}}</text>
+          </view>
+        </view>
+        <view class="s-text grey">{{corporationName}}</view>
+      </view>
+    </view>
+
+    <!-- 模块 -->
+    <view class="module">
+      <block wx:for="{{menu.children}}" wx:key="title">
+        <view class="module-title">
+          <icon class="icon"></icon>
+          <view>{{item.title}}</view>
+        </view>
+        <view class="module-list">
+          <view wx:for="{{item.children}}" wx:key="action" wx:for-item="module" data-action="{{module.action}}" class="item" hover="true" hover-class="item-hover" bindtap="clickModule">
+            <icon class="{{module.icon}}"></icon>
+            <text class="s-text">{{module.title}}</text>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</scroll-view>

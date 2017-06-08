@@ -1,0 +1,8 @@
+/* pages/project/updateWho/updateWho.wxss */
+.inpTextWho{
+    width: 70%;
+}
+.whoIcon{color: #7C7D7F}
+.gwIcon{color: #5FA2BC}
+.telIcon{color: #E7675C}
+.emailIcon{color: #AFB845}

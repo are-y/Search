@@ -1,0 +1,118 @@
+<loading hidden="{{hidden}}" bindchange="loadingChange">
+  加载中...
+</loading>
+<view>
+
+  <scroll-view scroll-y="true" style="height: {{scrollHeight}}px;">
+    <view class="showClass1">{{project.projectName==null?'':project.projectName}}</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <icon class="iconfont emps-xmjd1"></icon>
+        <view>项目阶段</view>
+        <view class="weui-cell__bd weui-cell__ft_in-access znDown">
+          <picker bindchange="stageOpen" value="{{index}}" range="{{stageType}}" range-key="label">
+            <view class="weui-input">
+              {{stageName==null?'':stageName}}
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input" bindtap="proSite">
+        <icon class="iconfont emps-xmzb"></icon>
+        <view>项目坐标</view>
+        <view class="weui-cell__bd weui-cell__ft_in-access">
+          <view class="weui-input">
+            {{project.longitude!=null?'已设置':'未设置'}}
+          </view>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <icon class="iconfont emps-xmjd"></icon>
+        <view>进度情况</view>
+        <view class="weui-cell__bd weui-cell__ft_in-access znDown">
+          <picker bindchange="planOpen" value="{{index}}" range="{{progressStatusType}}" range-key="label">
+            <view class="weui-input">
+              {{project.progressStatusName==null?'':project.progressStatusName}}
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <icon class="iconfont emps-tz"></icon>
+        <view>投资情况</view>
+        <view class="weui-cell__bd weui-cell__ft_in-access znDown">
+          <picker bindchange="investOpen" value="{{index}}" range="{{investmentStatusType}}" range-key="label">
+            <view class="weui-input">
+              {{project.investmentStatusName==null?'':project.investmentStatusName}}
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <icon class="iconfont emps-zlqk"></icon>
+        <view>质量情况</view>
+        <view class="weui-cell__bd weui-cell__ft_in-access znDown">
+          <picker bindchange="qualityOpen" value="{{index}}" range="{{qualityStatusType}}" range-key="label">
+            <view class="weui-input">
+              {{project.qualityStatusName==null?'':project.qualityStatusName}}
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <icon class="iconfont emps-aqqk"></icon>
+        <view>安全情况</view>
+        <view class="weui-cell__bd weui-cell__ft_in-access znDown">
+          <picker bindchange="safetyOpen" value="{{index}}" range="{{securityStatusType}}" range-key="label">
+            <view class="weui-input">
+              {{project.securityStatusName==null?'':project.securityStatusName}}
+            </view>
+          </picker>
+        </view>
+      </view>
+    </view>
+
+    <!--参与人员列表-->
+    <view class="showClass">
+      <text>参与人员</text>
+    </view>
+    <view wx:for="{{organizationTypeList}}" wx:key="organizationTypeList" wx:for-index="i" wx:for-item="organizationType">
+      <view>
+        <text class="organizationClass">【{{organizationType.label}}】</text>
+        <text bindtap="addWho" class="addClass" data-code="{{organizationType.code}}">【添加】</text>
+      </view>
+      <view class="weui-cells whoList">
+        <view wx:if="{{ataffListArray[i].length>0}}">
+          <view wx:for="{{ataffListArray[i]}}" wx:key="ataffList" wx:for-item="ataffList">
+            <view class="whoContent">
+              <view>参与人：{{ataffList.name==null?'':ataffList.name}}</view>
+              <view>岗位：{{ataffList.position==null?'':ataffList.position}}</view>
+              <view>联系电话：{{ataffList.mobile==null?'':ataffList.mobile}}</view>
+            </view>
+            <view class="whoMenu">
+              <view bindtap="updateWho" class="itmes" id="{{ataffList.participantID}}">
+                <icon class="iconfont emps-bj"></icon>编辑
+              </view>
+              <view bindtap="delWho" class="itmes" id="{{ataffList.participantID}}">
+                <icon class="iconfont emps-shanchu"></icon>删除
+              </view>
+              <view bindtap="topWho" class="itmes" data-index="{{index}}" data-nums="{{i}}">
+                <icon class="iconfont emps-shangyi1"></icon>上移
+              </view>
+              <view bindtap="bottomWho" class="itmes" data-index="{{index}}" data-nums="{{i}}">
+                <icon class="iconfont emps-shangyi"></icon>下移
+              </view>
+            </view>
+          </view>
+        </view>
+        <view wx:else>
+          <view class="onParticipant">暂无参与者</view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <view class="bottom-bar">
+    <label class="submit" bindtap="projectSave">保存</label>
+  </view>
+
+</view>

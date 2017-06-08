@@ -1,0 +1,30 @@
+<!--pages/project/check-upload.wxml-->
+<view class="page">
+    <view class="topTltie tltieClss">{{source.sourceName}}</view>
+    <view class="classname weui-panel">
+        <view class="tltieClss">项目阶段：<text>{{source.stageName}}</text></view>
+        <view class="tltieClss">资料类型：<text>{{source.sourceTypeName}}</text></view>
+        <view class="tltieClss">文档编号：<text>{{source.fileCode}}</text></view>
+        <view class="tltieClss">上传人员：<text>{{source.uploaderName}}</text></view>
+        <view class="tltieClss">所属公司：<text>{{source.corporationName}}</text></view>
+        <view class="tltieClss">上传时间：<text>{{source.insertTime}}</text></view>
+        <view  class="tltieClss">
+            <view>附件：</view>
+            <view wx:if="{{attachment==null}}">{{attachmentText}}</view>
+            <view wx:else>
+                <view  wx:for="{{attachment}}" wx:key="">
+                    <view style="color: #0000CD;font-size: 10pt;" data-data="{{item.fileID}}" data-ext="{{item.ext}}" bindtap="bindFile">{{index+1}}、{{item.fileID}}.{{item.ext}}</view> 
+                </view>
+            </view>
+            
+        </view>
+    </view>
+    
+    <view wxif="{{isVideo!==null}}" style="text-align: center;">
+        <video hidden="{{isVideo==null}}" src="{{isVideo}}"></video>
+    </view>
+    
+    <view style="margin-top:20px">
+        <button class="weui-btn" type="warn" style="width:92%" data-id="{{source.sourceID}}" bindtap="delSource">删除</button>
+    </view>
+</view>
